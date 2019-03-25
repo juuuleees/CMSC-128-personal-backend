@@ -46,3 +46,17 @@ exports.findRestoByID = (req, res) => {
             res.status(200).json({"Data":"No records found"});
 	});
 }
+
+exports.updateRestoByID = (req, res) => {
+
+  sql = "update restaurant set name = ? where restaurant_id = ?";
+
+  connection.query(sql, [req.params.name, req.params.restaurant_id], function (err, rows) {
+    if (err) {
+      res.status(500).json({"Error: ":err});
+    }
+    else
+      res.status(200).json({"name": req.params.name,
+                            "restaurant_id": req.params.restaurant_id });
+  });
+}

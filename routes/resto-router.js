@@ -3,4 +3,5 @@ const RestoController = require('../controllers/resto-controller'); // Gets the 
 
 router.get('/all-restos', RestoController.findAllRestos);
 router.get('/find-resto/:restaurant_id', RestoController.findRestoByID);
+router.put('/update-restos/:name/:restaurant_id', RestoController.updateRestoByID);
 module.exports = router; // Basically exports everything so that app.js can use all the routes here (Such convenient one liner lmao)

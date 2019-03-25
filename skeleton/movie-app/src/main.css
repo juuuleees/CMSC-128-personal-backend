@@ -1,0 +1,93 @@
+body {
+  font-family: 'Consolas';
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a#movie:hover {
+    text-decoration: none;
+    color: white;
+}
+
+li{
+	height: 30px;
+	width: 75%;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-left: 15px;	
+}
+
+li#list:hover{
+	text-decoration: none;
+    background-color: #0066ff;
+}
+
+li:nth-child(even){
+	background-color: #aabbff;
+
+}
+
+li:nth-child(odd){
+	background-color: #aaddff;
+}
+	
+.input {
+  border: 1px solid #bdc7d8;
+  border-radius: 5px;
+  padding: 8px 25px 8px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.button {
+	font-family: 'Verdana';
+	border-radius: 4px;
+	height: 25px;
+	width: 90px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	text-align: center;
+}
+
+#back {
+	font-family: 'Verdana';
+	border-radius: 4px;
+	height: 35px;
+	width: 175px;
+	margin-top: 25px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+#deleteB{
+	padding: 0px 0px 0px 0px;
+	margin-left: 35px;
+	border: none;
+}
+
+#editB{
+	padding: 0px 0px 0px 0px;
+	margin-left: 35px;
+	border: none;
+}
+
+.button#del{
+	margin: 0px 0px 0px 0px;
+}
+
+.button#edit{
+	margin: 0px 0px 0px 0px;
+}
