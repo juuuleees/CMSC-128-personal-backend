@@ -25,8 +25,8 @@ const mysql = require('mysql');
 var connection = mysql.createConnection({
   host      :   'localhost',
   user      :   'root',
-  password  :   '',
-  database  :   'moviesample' 
+  password  :   'cheese_ball',
+  database  :   'eatwise' 
 });
 
 /**
@@ -39,7 +39,7 @@ let sql = "";
 
 // returns all movies from database
 exports.findAll = (req, res) => {
-  sql = "select * from movie;";
+  sql = "select * from restaurant;";
   connection.query(sql, function(err, rows){
     if(err)
       res.status(500).json({"Error":err});
@@ -50,8 +50,8 @@ exports.findAll = (req, res) => {
 
 // find a specific movie from database via id
 exports.findById = (req, res) => {
-  sql = "select * from movie where _id = ?;"
-  connection.query(sql, [req.params._id], function(err, rows){
+  sql = "select * from restaurant where restaurant_id = ?;"
+  connection.query(sql, [req.params.restaurant_id], function(err, rows){
     if(err)
       res.status(500).json({"Error":err});
     else if(rows.length)
@@ -61,9 +61,9 @@ exports.findById = (req, res) => {
 
 // adds new data to database
 exports.add = (req, res) => {
-  sql = "insert into movie(title, year, actor, director, franchise) values(?,?,?,?,?);";
+  sql = "insert into restaurant(restaurant_id, name, type, address, description, longitude, latitude, opening_time, closing_time, price_min, price_max, delivery, bathroom, votes) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
-  connection.query(sql, [req.body.title, req.body.year, req.body.actor, req.body.director, req.body.franchise], function(err, rows){
+  connection.query(sql, [req.body.restaurant_id, req.body.name, req.body.type, req.body.address, req.body.description, req.body.longitude, req.body.latitude, req.body.opening_time, req.body.closing_time, req.body.price_min, req.body.price_max, req.body.delivery, req.body.bathroom, req.body.votes], function(err, rows){
     if(err)
       res.status(500).json({"Error":err});
     else{
@@ -75,9 +75,9 @@ exports.add = (req, res) => {
 
 // edits information in database fetched via id
 exports.edit = (req, res) => {
-  sql = "update movie set title=?, year=?, actor=?, director=?, franchise=? where _id=?;";
+  sql = "update movie set restaurant_id=?, name=?, type=?, address=?, description=?, longitude=?, latitude=?, opening_time=?, closing_time=?, price_min=?, price_max=?, delivery=?, bathroom=?, votes=? where restaurant_id=?;";
 
-  connection.query(sql, [req.body.title, req.body.year, req.body.actor, req.body.director, req.body.franchise, req.body._id], function(err, rows){
+  connection.query(sql, [req.body.restaurant_id, req.body.name, req.body.type, req.body.address, req.body.description, req.body.longitude, req.body.latitude, req.body.opening_time, req.body.closing_time, req.body.price_min, req.body.price_max, req.body.delivery, req.body.bathroom, req.body.votes, req.body.restaurant_id], function(err, rows){
     if(err)
       res.status(500).json({"Error":err});
     else{
@@ -89,9 +89,9 @@ exports.edit = (req, res) => {
 
 // delete a record from database
 exports.delete = (req, res) => {
-  sql = "delete from movie where title = ?";
+  sql = "delete from restaurant where restaurant_id = ?";
 
-  connection.query(sql, [req.body.title], function(err, rows){
+  connection.query(sql, [req.body.restaurant_id], function(err, rows){
     if(err)
       res.status(500).json({"Error":err});
     else
