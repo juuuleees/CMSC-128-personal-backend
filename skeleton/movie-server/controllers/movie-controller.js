@@ -38,8 +38,9 @@ var connection = mysql.createConnection({
 let sql = "";
 
 // returns all movies from database
+// working!!
 exports.findAll = (req, res) => {
-  sql = "call create_store(?,?,?,?,?,?,?,?,?);";
+  sql = "call view_all_stores()";
   connection.query(sql, function(err, rows){
     if(err)
       res.status(500).json({"Error":err});
@@ -49,9 +50,10 @@ exports.findAll = (req, res) => {
 }
 
 // find a specific movie from database via id
+// working!!
 exports.findById = (req, res) => {
-  sql = "select * from store where store_id = ?;"
-  connection.query(sql, [req.params.store_id], function(err, rows){
+  sql = "call view_store(" + req.params.store_id + ");"
+  connection.query(sql, function(err, rows){
     if(err)
       res.status(500).json({"Error":err});
     else if(rows.length)
@@ -61,9 +63,10 @@ exports.findById = (req, res) => {
 
 // adds new data to database
 exports.add = (req, res) => {
-  sql = "insert into store(store_id, name, type, address, description, longitude, latitude, opening_time, closing_time, price_min, price_max, delivery, bathroom, votes) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+  sql = "call create_store('" + req.body.in_name + "','" + req.body.in_type + "','" + req.body.address + "','" + req.body.opening_time + "','" + req.body.closing_time + "','" + req.body.in_price_min + "','" + req.body.in_price_max + "','" + req.body.in_delivery + "','" + req.body.in_bathroom + "')"
+  console.log(sql);
 
-  connection.query(sql, [req.body.store_id, req.body.name, req.body.type, req.body.address, req.body.description, req.body.longitude, req.body.latitude, req.body.opening_time, req.body.closing_time, req.body.price_min, req.body.price_max, req.body.delivery, req.body.bathroom, req.body.votes], function(err, rows){
+  connection.query(sql, function(err, rows){
     if(err)
       res.status(500).json({"Error":err});
     else{

@@ -23,7 +23,7 @@ const MovieController = require('../controllers/movie-controller');
  */
 
 router.get('/find-all', MovieController.findAll);
-router.get('/find-by-id/:_id', MovieController.findById);
+router.get('/find-by-id/:store_id', MovieController.findById);
 router.post('/add', MovieController.add);
 router.post('/delete', MovieController.delete);
 router.post('/edit/:_id', MovieController.edit)
