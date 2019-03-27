@@ -93,10 +93,13 @@ exports.edit = (req, res) => {
 }
 
 // delete a record from database
+// working!!
 exports.delete = (req, res) => {
-  sql = "delete from store where store_id = ?";
+  sql = "call delete_store(" + req.body.store_id + ");";
+  console.log(res.body)
+  console.log(sql)
 
-  connection.query(sql, [req.body.store_id], function(err, rows){
+  connection.query(sql, function(err, rows){
     if(err)
       res.status(500).json({"Error":err});
     else
