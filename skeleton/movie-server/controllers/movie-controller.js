@@ -62,6 +62,7 @@ exports.findById = (req, res) => {
 }
 
 // adds new data to database
+// error with the procedure? 
 exports.add = (req, res) => {
   sql = "call create_store('" + req.body.in_name + "','" + req.body.in_type + "','" + req.body.address + "','" + req.body.opening_time + "','" + req.body.closing_time + "','" + req.body.in_price_min + "','" + req.body.in_price_max + "','" + req.body.in_delivery + "','" + req.body.in_bathroom + "')"
   console.log(sql);
@@ -77,6 +78,7 @@ exports.add = (req, res) => {
 }
 
 // edits information in database fetched via id
+// leave for now, have to talk to database team about implementation
 exports.edit = (req, res) => {
   sql = "update movie set store_id=?, name=?, type=?, address=?, description=?, longitude=?, latitude=?, opening_time=?, closing_time=?, price_min=?, price_max=?, delivery=?, bathroom=?, votes=? where store_id=?;";
 
