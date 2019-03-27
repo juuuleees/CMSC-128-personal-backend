@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // setup routes
 const MovieRouter = require('./routes/movie-router');
-app.use('/movie', MovieRouter);
+app.use('/eatwise', MovieRouter);
 
 // display homepage
 app.get('/', (req, res) => {
@@ -40,6 +40,6 @@ app.get('/', (req, res) => {
 // initiate port
 app.listen(3001, (err) => {
   if (err) { console.log(err); }
-  else { console.log('\nMovie server is running at http://localhost:3001'); }
+  else { console.log('\nEatwise server is running at http://localhost:3001'); }
 });
 
