@@ -1,0 +1,37 @@
+<!DOCTYPE html>	
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<a href="https://gbf.wiki/images/thumb/1/1e/Npc_zoom_3040110000_01.png/720px-Npc_zoom_3040110000_01.png"><img src="https://gbf.wiki/images/thumb/1/1e/Npc_zoom_3040110000_01.png/720px-Npc_zoom_3040110000_01.png" height="500px" alt="bea" /></a><br/>
+
+	<form action="/eatwise/add" method = "get">
+		Restaurant Name<input type="text" name="name" placeholder="TEST"> </br>
+		Type<input type="text" name ="resType"> </br>
+		Location<input type="text" name ="resLoc"> </br>
+		Offering<input type="text" name ="resOffering"> </br>
+		Opening Time<input type="time" id="OT" name ="resOpeningTime"> </br>
+		Closing Time<input type="time" id="CT" name ="resClosingTime"> </br>
+
+		<script>
+			document.getElementById("OT").defaultValue = "00:00";
+			document.getElementById("CT").defaultValue = "00:00";
+		</script>
+
+		Price Range<input type="number" name ="resPrice"> </br>
+		Delivery:
+		True <input type="radio" name ="resDelivery" value="1">
+		False <input type="radio" name ="resDelivery" value="0">  </br>
+		CR? 
+		True <input type="radio" name ="resCR" value="1">
+		False <input type="radio" name ="resCR" value="0"> </br>
+		Longitude<input type="number" name ="resLong"> </br>
+		Latitude<input type="number" name ="resLat"> </br>
+		Description<input type="text" name ="resDesc"> </br>
+		Photos<input type="file" name ="resPhotos"> </br>
+		<input type="submit" value="Submit">
+	</form>
+
+</body>
+</html>
